@@ -17,7 +17,7 @@ dotenv.config({path:"./config/config.env"})
 
 // for connecting frontend to backend
 app.use(cors({
-    origin: [ 'http://localhost:5173', 'https://umaraqeelportfolio.netlify.app/','http://localhost:5174', '*'], 
+    origin: [ 'http://localhost:5173','https://umaraqeelportfolio.netlify.app/','http://localhost:5174', '*'], 
     credentials: true, 
   }));
 

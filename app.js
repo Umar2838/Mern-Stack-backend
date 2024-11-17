@@ -15,11 +15,19 @@ import projectRoute from "./router/projectRoute.js"
 const app = express()
 dotenv.config({path:"./config/config.env"})
 
-// for connecting frontend to backend
-app.use(cors({
-    origin: [ 'http://localhost:5173','https://umaraqeelportfolio.netlify.app/','http://localhost:5174', '*'], 
-    credentials: true, 
-  }));
+
+
+const allowedOrigins = ['http://localhost:5173','http://localhost:5174'];
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+
 
 app.use(cookieParser());
 app.use(express.json());

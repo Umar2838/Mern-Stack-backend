@@ -17,7 +17,7 @@ dotenv.config({path:"./config/config.env"})
 
 
 
-const allowedOrigins = ['http://localhost:5173','http://localhost:5174'];
+const allowedOrigins = ['https://umaraqeelportfolio.netlify.app/','http://localhost:5174'];
 app.use((req, res, next) => {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
